@@ -34,6 +34,5 @@ public function proses(Request $request){
      $alamat = $request->input('alamat');
     return "Nama :  ".$nama.", Alamat : ".$alamat;
 }
-
 }
 

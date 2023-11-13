@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-
 	public function home(){
 		return view('home');
 	}
@@ -18,5 +17,4 @@ class BlogController extends Controller
 	public function kontak(){
 		return view('kontak');
 	}
-
 }
