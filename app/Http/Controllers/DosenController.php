@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 class DosenController extends Controller
 {
-    //
-
 
 public function index(){
     $a=3;
