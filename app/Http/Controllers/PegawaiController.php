@@ -23,26 +23,41 @@ class PegawaiController extends Controller
 	// method untuk menampilkan view form tambah pegawai
 	public function tambah()
 	{
-
 		// memanggil view tambah
 		return view('tambah');
 
 	}
 
-	// method untuk insert data ke table pegawai
-	public function store(Request $request)
-	{
-		// insert data ke table pegawai
-		DB::table('pegawai')->insert([
-			'pegawai_nama' => $request->nama,
-			'pegawai_jabatan' => $request->jabatan,
-			'pegawai_umur' => $request->umur,
-			'pegawai_alamat' => $request->alamat
-		]);
-		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
+	// // method untuk insert data ke table pegawai
+	// public function store(Request $request)
+	// {
+	// 	// insert data ke table pegawai
+	// 	DB::table('pegawai')->insert([
+	// 		'pegawai_nama' => $request->nama,
+	// 		'pegawai_jabatan' => $request->jabatan,
+	// 		'pegawai_umur' => $request->umur,
+	// 		'pegawai_alamat' => $request->alamat
+	// 	]);
+	// 	// alihkan halaman ke halaman pegawai
+	// 	return redirect('/pegawai');
 
-	}
+	// }
+
+    public function store(Request $request)
+{
+    // Insert data ke table pegawai
+    $id = DB::table('pegawai')->insertGetId([
+        'pegawai_nama' => $request->nama,
+        'pegawai_jabatan' => $request->jabatan,
+        'pegawai_umur' => $request->umur,
+        'pegawai_alamat' => $request->alamat
+    ], 'pegawai_id');
+
+
+    // Alihkan halaman ke halaman yang menampilkan detail pegawai
+    return redirect('/pegawai/'.$id);
+}
+
 
 	// method untuk edit data pegawai
 	public function edit($id)
@@ -92,4 +107,31 @@ class PegawaiController extends Controller
 		return view('index',['pegawai' => $pegawai]);
 
 	}
+
+    // public function lihat($id)
+    // {
+    // // Ambil data pegawai berdasarkan ID
+    // $pegawai = DB::table('pegawai')
+    // ->where('pegawai_id', $id)->first();
+    // dd($pegawai);
+    // // Tampilkan halaman dengan data pegawai
+    // return view('lihat', ['pegawai' => $pegawai]);
+    // }
+
+    public function lihat($id)
+    {
+        // Mengambil satu data pegawai berdasarkan ID yang dipilih
+        $pegawai = DB::table('pegawai')->where('pegawai_id', $id)->first();
+
+        // Periksa apakah data pegawai ditemukan
+        if ($pegawai) {
+            // Jika ditemukan, lemparkan data ke view
+            return view('lihat', ['pegawai' => $pegawai]);
+        } else {
+            // Jika tidak ditemukan, redirect atau berikan pesan kesalahan
+            return redirect('/pegawai')->with('error', 'Pegawai tidak ditemukan');
+        }
+    }
+
+
 }
