@@ -36,7 +36,6 @@ Route::get('/week1', function () {
 Route::get('/masukkan/{nama}', 'App\Http\Controllers\DosenController@shownama');
 
 Route::get('/formulir', 'App\Http\Controllers\DosenController@formulir');
-
 Route::post('/formulir/proses', 'App\Http\Controllers\DosenController@proses');
 
 Route::get('/blog', 'App\Http\Controllers\BlogController@home');
@@ -50,6 +49,10 @@ Route::post('/pegawai/store','App\Http\Controllers\PegawaiController@store');
 Route::get('/pegawai/edit/{id}','App\Http\Controllers\PegawaiController@edit');
 Route::post('/pegawai/update','App\Http\Controllers\PegawaiController@update');
 Route::get('/pegawai/hapus/{id}','App\Http\Controllers\PegawaiController@hapus');
-
 Route::get('/pegawai/cari','App\Http\Controllers\PegawaiController@cari');
 Route::get('/pegawai/lihat/{id}','App\Http\Controllers\PegawaiController@lihat');
+
+//nilaikuliah CRUD
+Route::get('/nilai', 'App\Http\Controllers\NilaiController@index2');
+Route::get('/nilai/tambah','App\Http\Controllers\NilaiController@tambah2');
+Route::post('/nilai/store','App\Http\Controllers\NilaiController@store2');

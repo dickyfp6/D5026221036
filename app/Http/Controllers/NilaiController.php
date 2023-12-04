@@ -6,41 +6,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class PegawaiController extends Controller
+class NilaiController extends Controller
 {
-	public function index()
+	public function index2()
 	{
     	// mengambil data dari table pegawai
 		// $pegawai = DB::table('pegawai')->get();
 
-		$pegawai = DB::table('pegawai')->paginate(10);
+		$nilaikuliah = DB::table('nilaikuliah')->paginate(10);
 
     	// mengirim data pegawai ke view index
-		return view('index',['pegawai' => $pegawai]);
+		return view('index_nilai',['nilaikuliah' => $nilaikuliah]);
 
 	}
 
 	// method untuk menampilkan view form tambah pegawai
-	public function tambah()
+	public function tambah2()
 	{
 		// memanggil view tambah
-		return view('tambah');
+		return view('tambahnilai');
 
 	}
 
 	// method untuk insert data ke table pegawai
-	public function store(Request $request)
+	public function store2(Request $request)
 	{
-		// insert data ke table pegawai
-		DB::table('pegawai')->insert([
-			'pegawai_nama' => $request->nama,
-			'pegawai_jabatan' => $request->jabatan,
-			'pegawai_umur' => $request->umur,
-			'pegawai_alamat' => $request->alamat
+		DB::table('nilaikuliah')->insert([
+			'NRP' => $request->NRP,
+			'NilaiAngka' => $request->NilaiAngka,
+			'SKS' => $request->SKS,
 		]);
-		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
-
+		return redirect('/nilai');
 	}
 
 //     public function store(Request $request)
