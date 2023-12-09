@@ -17,14 +17,18 @@
 	<br/>
 
     @section('konten')
-    <a href="/pegawai/tambah" class="btn btn-secondary"> + Tambah Pegawai Baru</a>
-
-	<p>Cari Data Pegawai :</p>
-	<form action="/pegawai/cari" method="GET">
-		<input type="text" name="cari" placeholder="Masukkan Nama Pegawai" value="{{ old('cari') }}">
-		<input type="submit" value="CARI" class="btn btn-primary">
-	</form>
-
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/pegawai/tambah" class="btn btn-secondary"> + Tambah Pegawai Baru</a>
+        </div>
+        <div class="col-md-6 text-right">
+            <form action="/pegawai/cari" method="GET">
+                <input type="text" name="cari" placeholder="Cari Nama Pegawai" value="{{ old('cari') }}">
+                <input type="submit" value="CARI" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    <br>
 	<table class="table table-striped table-hover">
 		<tr>
 			<th>Nama</th>

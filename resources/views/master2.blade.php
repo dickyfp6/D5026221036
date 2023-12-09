@@ -24,13 +24,16 @@
             <!-- Links -->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="/nilaikuliah">Link 1</a>
+                <a class="nav-link" href="/pegawai">Pegawai</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
+                <a class="nav-link" href="/nilai">Nilai Kuliah</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/mobil">Mobil</a>
               </li>
 
-              <!-- Dropdown -->
+              {{-- <!-- Dropdown -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                     Database
@@ -40,7 +43,7 @@
                   <a class="dropdown-item" href="/nilaikuliah">Link 2</a>
                   <a class="dropdown-item" href="#">Link 3</a>
                 </div>
-              </li>
+              </li> --}}
             </ul>
           </nav>
         <hr/>
@@ -58,7 +61,7 @@
         <br/>
         <hr/>
         <footer>
-            <p>&copy; <a href="https://www.malasngoding.com">www.malasngoding.com</a>. 2018 - 2019</p>
+            {{-- <p>&copy; <a href="https://www.malasngoding.com">www.malasngoding.com</a>. 2018 - 2019</p> --}}
         </footer>
     </div>
 </body>
