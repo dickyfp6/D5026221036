@@ -32,6 +32,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/mobil">Mobil</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/kategori">Kategori</a>
+              </li>
 
               {{-- <!-- Dropdown -->
               <li class="nav-item dropdown">

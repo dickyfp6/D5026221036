@@ -65,3 +65,10 @@ Route::get('/mobil/beli/{kodemobil}','App\Http\Controllers\MobilController@beli'
 Route::post('/mobil/proses-beli/{kodemobil}','App\Http\Controllers\MobilController@prosesBeli');
 Route::get('/mobil/hapus/{kodemobil}','App\Http\Controllers\MobilController@hapus3');
 Route::get('/mobil/cari','App\Http\Controllers\MobilController@cari');
+
+//Kategori R
+Route::get('/kategori', 'App\Http\Controllers\KategoriController@index4');
+Route::post('/kategori/kirim/', 'App\Http\Controllers\KategoriController@kirim');
+// Route::get('/kategori/lihat/{id}', 'App\Http\Controllers\KategoriController@lihat')->name('kategori.lihat');
+
+
